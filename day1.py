@@ -34,7 +34,7 @@ def generate_html():
                 <a href="/c.html">C</a>
                 <a href="/d.html">D</a>
                 <a href="/e.html">E</a>
-                
+
                 <script>
                     var hello = 'yoh';
                     alert(hello);
@@ -81,10 +81,11 @@ def req(page):
 
 def scrape_titles(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
-    a_elements = soup.find_all('h2')
-    for a in a_elements:
-        print(a.text)
+    h2_elements = soup.find_all('h2')
+    for i, h2 in enumerate(h2_elements):
+        print(f'{h2.a.text}')
 
 if __name__ == '__main__':
     for i in range(4):
-        req(i+1)
+        req(i + 1)
+
